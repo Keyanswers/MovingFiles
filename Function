@@ -1,0 +1,31 @@
+import os
+import shutil
+
+# Source and destination paths
+Path = "C:/Users/jucar/Documents/Research/ShortCut/Model_E/ModelFrank_OutOfBounds"
+
+imapath = os.path.join(Path, "BB_images")
+textpath = os.path.join(Path, "BB_text")
+
+DestPath = os.path.join(Path, "CheckingFiles")
+
+# Create the destination folder if it does not exist
+if not os.path.exists(DestPath):
+    os.makedirs(DestPath)
+
+# Function to move files
+def MovingFiles(source_path, dest_path):
+    for filename in os.listdir(source_path):
+        FilePath = os.path.join(source_path, filename)  # Full path of the file
+        if os.path.isfile(FilePath):  # Check if it is a file
+            shutil.move(FilePath, dest_path)
+            print(f"Moved: {FilePath} to {dest_path}")
+
+# Move files from 'BB_images' and 'BB_text' folders
+print("Moving files from 'images' folder...")
+MovingFiles(imapath, DestPath)
+
+print("Moving files from 'text' folder...")
+MovingFiles(textpath, DestPath)
+
+print("All files were moved successfully!")
