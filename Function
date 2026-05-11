@@ -1,31 +1,84 @@
+# ==========================================
+# PACKAGES
+# ==========================================
+
+# Operating system utilities
 import os
+
+# File manipulation utilities
 import shutil
 
-# Source and destination paths
-Path = "C:/Users/jucar/Documents/Research/ShortCut/Model_E/ModelFrank_OutOfBounds"
+# ==========================================
+# SOURCE AND DESTINATION PATHS
+# ==========================================
 
+# Main project directory
+Path = "C:/Users/ProjectFolder"
+
+# Folder containing image files
 imapath = os.path.join(Path, "BB_images")
+
+# Folder containing text files
 textpath = os.path.join(Path, "BB_text")
 
+# Destination folder where all files
+# will be moved
 DestPath = os.path.join(Path, "CheckingFiles")
 
-# Create the destination folder if it does not exist
+# ==========================================
+# CREATE DESTINATION DIRECTORY
+# ==========================================
+
+# Create the destination folder
+# only if it does not already exist
 if not os.path.exists(DestPath):
     os.makedirs(DestPath)
 
-# Function to move files
+# ==========================================
+# FUNCTION TO MOVE FILES
+# ==========================================
+
 def MovingFiles(source_path, dest_path):
+    
+    # Iterate through all elements
+    # inside the source directory
     for filename in os.listdir(source_path):
-        FilePath = os.path.join(source_path, filename)  # Full path of the file
-        if os.path.isfile(FilePath):  # Check if it is a file
-            shutil.move(FilePath, dest_path)
+        
+        # Create full file path
+        FilePath = os.path.join(source_path,
+                                filename)
+        
+        # Verify that the element
+        # is actually a file
+        if os.path.isfile(FilePath):
+            
+            # Move file to destination folder
+            shutil.move(FilePath,
+                        dest_path)
+            
+            # Print movement confirmation
             print(f"Moved: {FilePath} to {dest_path}")
 
-# Move files from 'BB_images' and 'BB_text' folders
+# ==========================================
+# MOVE FILES FROM IMAGE FOLDER
+# ==========================================
+
 print("Moving files from 'images' folder...")
-MovingFiles(imapath, DestPath)
+
+MovingFiles(imapath,
+            DestPath)
+
+# ==========================================
+# MOVE FILES FROM TEXT FOLDER
+# ==========================================
 
 print("Moving files from 'text' folder...")
-MovingFiles(textpath, DestPath)
+
+MovingFiles(textpath,
+            DestPath)
+
+# ==========================================
+# FINAL MESSAGE
+# ==========================================
 
 print("All files were moved successfully!")
