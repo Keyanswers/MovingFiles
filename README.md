@@ -1,6 +1,6 @@
 ---
 title: "File Merger and Organizer in Python"
-author: "Juan Carlos Rubio Polania"
+author: "Juan Carlos Rubio Polania, PhD"
 date: "2024-11-24"
 ---
 
@@ -150,4 +150,4 @@ This project is licensed under the MIT License.
 
 # Author
 
-Juan Carlos Rubio Polania
+Juan Carlos Rubio Polania, PhD
