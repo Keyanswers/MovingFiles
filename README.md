@@ -2,7 +2,6 @@
 title: "File Merger and Organizer in Python"
 author: "Juan Carlos Rubio Polania"
 date: "2024-11-24"
-output: html_document
 ---
 
 # File Merger and Organizer in Python 📂🐍
